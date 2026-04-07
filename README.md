@@ -51,6 +51,9 @@ It is a packaged execution framework.
 - `local-business-site`  
   Ship simple static sites for local businesses with proof, CTA, and same-day bias.
 
+- `local-seo-engine`  
+  Improve local SEO with GBP category fixes, bottom-funnel keywords, money pages, review velocity, backlinks, and simple reporting.
+
 - `proof-to-content`  
   Turn screenshots, builds, wins, demos, and receipts into threads, posts, reels, and trust assets.
 
@@ -93,6 +96,7 @@ skills/
   offer-architecture/
   sales-call-close/
   local-business-site/
+  local-seo-engine/
   proof-to-content/
   reel-production/
   trading-bot-lab/
