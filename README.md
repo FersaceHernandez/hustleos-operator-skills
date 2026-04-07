@@ -1,25 +1,109 @@
-# HustleOS Skills
+# HustleOS Operator Skills
 
-Agent skills for operator work, local business offers, and AI-assisted content production.
+Reusable agent skills for sales, operator work, offer design, content production, and execution.
+
+This repo packages the way we work into installable skills that can be used by skills-compatible agents like Claude Code, Codex, and OpenCode.
+
+## What this repo is
+
+Most agents are smart but generic.
+
+This repo gives them a reusable operating system for work that actually matters:
+- shaping offers
+- closing deals
+- shipping local business sites
+- turning proof into content
+- producing reels
+- stress-testing strategy
+- building trading bots carefully instead of gambling
+
+Each skill is a focused playbook inside `skills/<name>/SKILL.md`.
+When a matching task appears, the agent can load the right skill and follow a proven workflow instead of improvising from scratch.
+
+## Why this helps
+
+Without skills:
+- output is inconsistent
+- the same process has to be re-explained every time
+- strategy gets vague
+- execution quality drifts
+
+With skills:
+- workflows are repeatable
+- outputs are cleaner
+- execution is faster
+- operator knowledge becomes reusable
+
+This is not a notes framework.
+It is a packaged execution framework.
 
 ## Included skills
 
-- `ai-strategy-room` — stress-test offers, pricing, funnels, and strategic decisions with a multi-model debate workflow
-- `offer-architecture` — turn vague ideas into clear offers, packages, pricing, and a sellable promise
-- `sales-call-close` — structure discovery calls, objection handling, demos, and the close ask
-- `local-business-site` — ship fast static sites for local businesses with a clear offer, proof, and CTA
-- `proof-to-content` — turn screenshots, results, demos, and receipts into posts, threads, and reels
-- `reel-production` — turn an idea into a short-form reel with a hook, script, shot list, and B-roll prompts
-- `trading-bot-lab` — design and validate trading or prediction-market bots with paper trading and risk controls first
+- `ai-strategy-room`  
+  Structured multi-turn strategy debates for offers, pricing, funnels, GTM, and business decisions.
+
+- `offer-architecture`  
+  Turn rough ideas into sellable offers, packages, pricing, and clearer promises.
+
+- `sales-call-close`  
+  Structure discovery calls, diagnosis, objection handling, demos, and direct close asks.
+
+- `local-business-site`  
+  Ship simple static sites for local businesses with proof, CTA, and same-day bias.
+
+- `proof-to-content`  
+  Turn screenshots, builds, wins, demos, and receipts into threads, posts, reels, and trust assets.
+
+- `reel-production`  
+  Build short-form videos with hooks, scripts, shot lists, B-roll prompts, and CTA logic.
+
+- `trading-bot-lab`  
+  Design and validate trading or prediction-market bots with paper trading and risk controls first.
+
+## How it works
+
+Each skill contains:
+- a `name`
+- a `description` that tells the agent when to trigger it
+- a `SKILL.md` body with the actual workflow
+
+That means the same repo can teach an agent multiple specialized workflows without needing one giant prompt.
 
 ## Install
 
 ### Claude Code
-Copy the `skills/` folders into your skills directory or project `.claude` setup.
+Copy the `skills/` folders into your project `.claude` skills setup or your preferred Claude skills location.
 
 ### Codex / OpenCode
-Clone this repo into your skills path so the directory structure remains intact.
+Clone this repo into your skills path so the directory structure stays intact.
 
-## Notes
+## Current focus
 
-These skills are opinionated. They favor speed, proof, simple offers, selling, and shipping over overthinking.
+This library is built around operator leverage:
+- revenue first
+- proof over promises
+- simple execution
+- shipping over theory
+
+## Repo structure
+
+```text
+skills/
+  ai-strategy-room/
+  offer-architecture/
+  sales-call-close/
+  local-business-site/
+  proof-to-content/
+  reel-production/
+  trading-bot-lab/
+```
+
+## Next likely additions
+
+- lead-qualifier
+- outbound-offer-builder
+- client-onboarding
+- audit-to-proposal
+- sales-objection-bank
+
+If you use these skills, make them your own and ship.
