@@ -63,6 +63,20 @@ It is a packaged execution framework.
 - `trading-bot-lab`  
   Design and validate trading or prediction-market bots with paper trading and risk controls first.
 
+### Apify Agent Skills (from [apify/agent-skills](https://github.com/apify/agent-skills))
+
+- `apify-ultimate-scraper`  
+  Universal AI-powered web scraper for 55+ platforms including Instagram, Facebook, TikTok, YouTube, Google Maps, and more. Use for lead generation, brand monitoring, competitor analysis, and data extraction.
+
+- `apify-actor-development`  
+  Develop, debug, and deploy Apify Actors — serverless cloud programs for web scraping, automation, and data processing.
+
+- `apify-actorization`  
+  Convert existing JavaScript/TypeScript, Python, or CLI projects into Apify Actors for cloud deployment.
+
+- `apify-generate-output-schema`  
+  Auto-generate output schemas (dataset, key-value store, output) for Apify Actors by analyzing source code.
+
 ## How it works
 
 Each skill contains:
@@ -100,6 +114,10 @@ skills/
   proof-to-content/
   reel-production/
   trading-bot-lab/
+  apify-ultimate-scraper/
+  apify-actor-development/
+  apify-actorization/
+  apify-generate-output-schema/
 ```
 
 ## Next likely additions
