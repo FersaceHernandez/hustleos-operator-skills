@@ -77,6 +77,14 @@ It is a packaged execution framework.
 - `apify-generate-output-schema`  
   Auto-generate output schemas (dataset, key-value store, output) for Apify Actors by analyzing source code.
 
+### Content & Social Media
+
+- `content-intel`  
+  Scrape your social media accounts and competitors via Apify MCP server. Analyze what's going viral, spot trends, find content gaps, and generate intelligence reports.
+
+- `viral-engine`  
+  Generate platform-specific content (reels, carousels, threads, TikToks) engineered for virality based on real data. Hooks, scripts, calendars, and remix strategies.
+
 ### Document Generation (from [anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks))
 
 - `doc-generator`  
@@ -130,6 +138,8 @@ skills/
   apify-actor-development/
   apify-actorization/
   apify-generate-output-schema/
+  content-intel/
+  viral-engine/
   doc-generator/
 utils/
   skill_utils.py
