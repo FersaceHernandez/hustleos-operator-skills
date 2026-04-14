@@ -19,12 +19,20 @@ Making money with AI — building AI-powered businesses, using AI tools to gener
 - No-code AI apps that generate revenue
 - AI for sales, lead gen, and closing
 
-## Competitors
-1. [TBD — add 3-5 AI money/business creators in your space]
-2. [TBD]
-3. [TBD]
-4. [TBD]
-5. [TBD]
+## Competitors (Top Targets to Study & Outpace)
+
+### Tier 1 — Direct competitors (same niche, same platforms)
+1. **Nick Saraev** — IG: @nick_saraev (477K), YT: @nicksaraev (313K), X: @nicksaraev — AI automation with n8n/Make, real operator energy
+2. **Sabrina Ramonov** — IG: @sabrina_ramonov (571K), TikTok: @sabrina_ramonov (736K), X: @Sabrina_Ramonov — AI content systems, Forbes 30u30, sold AI startup for $10M+
+3. **Liam Ottley** — YT: @LiamOttley (706K), IG: @liamottley, X: @liamottley_ — Invented the AI Automation Agency model, 35K+ community
+
+### Tier 2 — Larger creators to study (bigger reach, overlapping audience)
+4. **Greg Isenberg** — X: @gregisenberg (620K), YT: @gregisenberg (451K), IG: @gregisenberg (117K) — AI startup ideas, "vibe marketing"
+5. **Brett Malinowski** — YT: @TheBrettWay (500K), X: @thebrettway (176K), IG: @thebrettway.eth — AI tools + entrepreneurship
+
+### Tier 3 — Newsletter/X giants (study their hooks and topics)
+6. **Zain Kahn** — X: @heykahn (1.5M), newsletter: superhuman.ai (2M readers) — AI for business leverage
+7. **Rowan Cheung** — X: @rowancheung (583K), IG: @rowancheung (360K), newsletter: therundown.ai (2M subs) — AI news + tools
 
 ## Content Goals
 - Build authority as the "AI operator" — the person who actually ships, not just talks

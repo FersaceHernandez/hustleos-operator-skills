@@ -5,7 +5,6 @@
 # Output data
 output/
 data/
-reports/
 
 # Node
 node_modules/
