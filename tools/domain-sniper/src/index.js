@@ -80,9 +80,21 @@ async function main() {
 `;
     console.log(banner);
 
-    // Step 1: Scrape PACER
-    console.log('STEP 1/3: Scraping PACER for Chapter 7 filings...\n');
+    // Step 1: Scrape for domains
+    // Try PACER first, fall back to web scraper if no results
+    console.log('STEP 1/3: Scanning for bankruptcy domains...\n');
     run(`node src/pacer-scraper.js --days ${args.days}`);
+
+    // Check if PACER found anything, if not use web scraper
+    const { readFileSync: rf, existsSync: ex } = await import('node:fs');
+    const filingsPath = join(ROOT, 'data', 'filings.json');
+    if (ex(filingsPath)) {
+        const filings = JSON.parse(rf(filingsPath, 'utf-8'));
+        if ((filings.domains || []).length === 0) {
+            console.log('\nPACER returned 0 domains. Using web scraper fallback...\n');
+            run('node src/web-scraper.js');
+        }
+    }
 
     console.log('\n');
 
