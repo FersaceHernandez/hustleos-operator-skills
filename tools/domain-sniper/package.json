@@ -1,0 +1,13 @@
+{
+  "name": "domain-sniper",
+  "version": "0.1.0",
+  "description": "AI-powered tool that monitors PACER bankruptcy filings for undervalued e-commerce domains with high SEO authority",
+  "type": "module",
+  "scripts": {
+    "snipe": "node src/index.js",
+    "scrape": "node src/pacer-scraper.js",
+    "score": "node src/domain-scorer.js",
+    "digest": "node src/daily-digest.js"
+  },
+  "dependencies": {}
+}
