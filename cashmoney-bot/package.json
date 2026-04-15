@@ -1,0 +1,12 @@
+{
+  "name": "cashmoney-bot",
+  "version": "0.1.0",
+  "description": "AI-powered money tools — TCPA claims, domain sniping, credit disputes, ADA scanning, demand letters",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "node src/server.js",
+    "build": "echo 'Static site — no build step needed'"
+  },
+  "dependencies": {}
+}
