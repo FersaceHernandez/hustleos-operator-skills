@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashMoney.bot — AI Tools That Find You Money</title>
+    <meta name="description" content="5 AI-powered tools that find hidden money opportunities. TCPA claims, domain sniping, credit disputes, ADA scanning, and demand letters. From $29/mo.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --surface2: #1e1e1e;
+            --border: #2a2a2a;
+            --text: #f0f0f0;
+            --text-muted: #888;
+            --accent: #00ff88;
+            --accent2: #00cc6a;
+            --yellow: #ffd700;
+            --red: #ff4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 16px 24px;
+            background: rgba(10,10,10,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .logo span { color: var(--text); }
+        .nav-cta {
+            background: var(--accent);
+            color: #000;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .nav-cta:hover { background: var(--accent2); }
+
+        /* HERO */
+        .hero {
+            padding: 140px 24px 80px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        .hero h1 .highlight {
+            color: var(--accent);
+        }
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .hero-cta {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            padding: 16px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+        .hero-cta:hover { background: var(--accent2); transform: translateY(-2px); }
+        .hero-sub {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* SOCIAL PROOF */
+        .proof {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+        .proof-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        .proof-stat .number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .proof-stat .label {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* TOOLS */
+        .tools {
+            padding: 80px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-label {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .section-desc {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .tool-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.2s;
+        }
+        .tool-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        .tool-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        .tool-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .tool-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+        .tool-tag {
+            display: inline-block;
+            background: var(--surface2);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* HOW IT WORKS */
+        .how {
+            padding: 80px 24px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+        .steps {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .step {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .step-num {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: var(--accent);
+            color: #000;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+        }
+        .step h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .step p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* PRICING */
+        .pricing {
+            padding: 80px 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .price-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        .price-card.popular {
+            border-color: var(--accent);
+            position: relative;
+        }
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #000;
+            padding: 4px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .price-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .price {
+            font-size: 48px;
+            font-weight: 800;
+        }
+        .price span {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        .price-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        .features li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .features li::before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .price-cta {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .price-cta.primary {
+            background: var(--accent);
+            color: #000;
+        }
+        .price-cta.secondary {
+            background: var(--surface2);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .price-cta:hover { transform: translateY(-2px); }
+
+        /* CTA SECTION */
+        .final-cta {
+            padding: 80px 24px;
+            text-align: center;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+        .final-cta h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .final-cta p {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* EMAIL CAPTURE */
+        .email-form {
+            display: flex;
+            gap: 8px;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+        .email-form input {
+            flex: 1;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 15px;
+            outline: none;
+        }
+        .email-form input:focus { border-color: var(--accent); }
+        .email-form button {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .email-form button:hover { background: var(--accent2); }
+
+        @media (max-width: 640px) {
+            .proof-stats { gap: 30px; }
+            .email-form { flex-direction: column; }
+            .step { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="logo">Cash<span>Money</span>.bot</a>
+    <a href="#pricing" class="nav-cta">Get Started</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">5 AI Tools. One Subscription. Real Money.</div>
+    <h1>AI tools that <span class="highlight">find you money</span> other people miss</h1>
+    <p>Spam call claims, expired domain deals, credit report errors, ADA violations, and legal demand letters — all automated by AI.</p>
+    <a href="#pricing" class="hero-cta">Start Finding Money →</a>
+    <p class="hero-sub">From $29/mo. Cancel anytime. No contracts.</p>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof">
+    <div class="proof-stats">
+        <div class="proof-stat">
+            <div class="number">$1,500</div>
+            <div class="label">Per spam call violation</div>
+        </div>
+        <div class="proof-stat">
+            <div class="number">$50→$5K</div>
+            <div class="label">Domain flip potential</div>
+        </div>
+        <div class="proof-stat">
+            <div class="number">$1,000</div>
+            <div class="label">Per credit report error</div>
+        </div>
+        <div class="proof-stat">
+            <div class="number">$3-10K</div>
+            <div class="label">ADA violation settlements</div>
+        </div>
+    </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" id="tools">
+    <div class="section-label">The Toolkit</div>
+    <h2 class="section-title">5 AI tools. Each one finds money.</h2>
+    <p class="section-desc">Most people don't know these opportunities exist. Our AI finds them, scores them, and tells you exactly what to do.</p>
+
+    <div class="tools-grid">
+        <div class="tool-card">
+            <div class="tool-icon">📞</div>
+            <h3>TCPA Claim Generator</h3>
+            <p>Log spam calls, identify violators, and auto-generate FCC complaints. Companies owe you $500-$1,500 per illegal robocall.</p>
+            <span class="tool-tag">$500-$1,500 per violation</span>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-icon">🌐</div>
+            <h3>Domain Sniper</h3>
+            <p>AI monitors bankruptcy courts for expired e-commerce domains with high SEO authority. Buy for $50, worth $5,000+.</p>
+            <span class="tool-tag">Daily alerts on high-value domains</span>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-icon">📊</div>
+            <h3>Credit Dispute AI</h3>
+            <p>Scans your credit report for errors and auto-generates dispute letters. Each error removed can be worth $1,000 under FCRA.</p>
+            <span class="tool-tag">$1,000 per error under FCRA</span>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-icon">♿</div>
+            <h3>ADA Site Scanner</h3>
+            <p>Scan any website for ADA accessibility violations. Non-compliant businesses settle for $3,000-$10,000 to avoid lawsuits.</p>
+            <span class="tool-tag">Scan unlimited URLs</span>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-icon">📝</div>
+            <h3>Demand Letter Writer</h3>
+            <p>AI drafts professional legal demand letters for TCPA, FDCPA, FCRA, and contract violations. No lawyer needed to send one.</p>
+            <span class="tool-tag">Generate in 30 seconds</span>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Three steps to hidden money</h2>
+    <p class="section-desc">Our AI does the research. You decide what to act on.</p>
+
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>AI scans for opportunities</h3>
+                <p>Our tools continuously monitor bankruptcy courts, phone records, credit reports, and websites for violations and undervalued assets.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>You get scored alerts</h3>
+                <p>Every opportunity is scored by value, difficulty, and likelihood of success. You only see the ones worth your time.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>AI generates the paperwork</h3>
+                <p>Complaint letters, dispute forms, demand letters, domain purchase guides — all auto-generated and ready to send.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">One subscription. All tools.</h2>
+    <p class="section-desc">Each tool pays for itself with a single successful claim or flip.</p>
+
+    <div class="pricing-grid">
+        <div class="price-card">
+            <h3>Free</h3>
+            <div class="price">$0</div>
+            <p class="price-desc">See what you're missing</p>
+            <ul class="features">
+                <li>1 free TCPA complaint letter</li>
+                <li>1 free credit dispute letter</li>
+                <li>1 free ADA site scan</li>
+                <li>Weekly domain digest (top 3 only)</li>
+                <li>Educational content</li>
+            </ul>
+            <a href="#signup" class="price-cta secondary">Start Free</a>
+        </div>
+
+        <div class="price-card popular">
+            <div class="popular-badge">MOST POPULAR</div>
+            <h3>Pro</h3>
+            <div class="price">$29<span>/mo</span></div>
+            <p class="price-desc">Full access to all AI tools</p>
+            <ul class="features">
+                <li>Unlimited TCPA complaint letters</li>
+                <li>Unlimited credit dispute letters</li>
+                <li>Unlimited ADA site scans</li>
+                <li>Daily domain sniper alerts</li>
+                <li>Unlimited demand letters</li>
+                <li>Priority email support</li>
+                <li>New tools as they launch</li>
+            </ul>
+            <a href="#signup" class="price-cta primary">Get Pro →</a>
+        </div>
+
+        <div class="price-card">
+            <h3>Agency</h3>
+            <div class="price">$99<span>/mo</span></div>
+            <p class="price-desc">For professionals and firms</p>
+            <ul class="features">
+                <li>Everything in Pro</li>
+                <li>Bulk processing (100+ at a time)</li>
+                <li>API access for custom integrations</li>
+                <li>White-label demand letters</li>
+                <li>Priority domain alerts (before Pro)</li>
+                <li>1-on-1 onboarding call</li>
+                <li>Dedicated support</li>
+            </ul>
+            <a href="#signup" class="price-cta secondary">Go Agency</a>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="signup">
+    <h2>Stop leaving money on the table</h2>
+    <p>Every spam call, every credit error, every expired domain is money someone owes you or money sitting unclaimed. Let AI find it.</p>
+    <form class="email-form" onsubmit="handleSignup(event)">
+        <input type="email" placeholder="Enter your email" required id="email-input">
+        <button type="submit">Get Started</button>
+    </form>
+    <p class="hero-sub" style="margin-top:12px;">Free tier available. No credit card required.</p>
+    <p id="signup-success" style="color:var(--accent);margin-top:16px;display:none;font-weight:700;">You're in! Check your email.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>CashMoney.bot — AI tools that find you money.</p>
+    <p style="margin-top:8px;">
+        <a href="#tools">Tools</a> · <a href="#pricing">Pricing</a> · <a href="mailto:support@cashmoney.bot">Contact</a>
+    </p>
+    <p style="margin-top:16px;">This is not legal advice. CashMoney.bot provides tools and information for educational purposes. Consult an attorney for legal matters.</p>
+</footer>
+
+<script>
+function handleSignup(e) {
+    e.preventDefault();
+    const email = document.getElementById('email-input').value;
+    // TODO: Connect to email service (ConvertKit, Mailchimp, etc.)
+    console.log('Signup:', email);
+    document.getElementById('signup-success').style.display = 'block';
+    document.getElementById('email-input').value = '';
+}
+</script>
+
+</body>
+</html>
